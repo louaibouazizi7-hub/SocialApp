@@ -10,6 +10,7 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.get('/', (req, res) => res.json({ message: 'SocialApp API OK' }));
+app.use('/api/users', require('./routes/auth'));
 
 mongoose
   .connect(process.env.MONGO_URI)
